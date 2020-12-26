@@ -1,0 +1,21 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bent": "^7.3.12",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "geoip-lite": "^1.4.2",
+    "ip": "^1.1.5",
+    "openweather-apis": "^4.4.0",
+    "request": "^2.88.2",
+    "weather-data": "^1.0.1"
+  }
+}

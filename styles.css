@@ -1,0 +1,66 @@
+@keyframes rotateSunAndMoon {	
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+.scene {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+    justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+#sunMoonCycle {
+	/* width: 100vw; */
+	height: 100vw;
+	position: relative;
+	/* max-width: 100%; */
+	/* max-height: 100vh; */
+	margin: auto;
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+	flex-wrap: wrap;
+	flex-direction: column;
+	animation: rotateSunAndMoon 24s infinite linear;
+	animation-delay: -12s;
+}
+
+.sun {
+  width: 15vw;
+  height: 15vw;
+  background-image: url("jermasun.png");
+  background-size: cover;
+}
+
+.moon {
+  width: 15vw;
+  height: 15vw;
+  background-image: url("jermamoon.png");
+  background-size: cover;
+  transform: scaleY(-1);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+svg {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+
+body { 
+  margin: 0; 
+  padding: 0;
+  background-color: #000;
+  background-image: url(background.png); 
+  background-size:cover;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
