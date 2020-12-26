@@ -3,6 +3,19 @@
   to { rotate: 360deg; }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+#about {
+    font-family: 'Open Sans', sans-serif;
+	position: absolute;
+	opacity: 0.5;
+	bottom: 0;
+	right: 0;
+	background-color: white;
+	height: auto;
+}
+
+
 .scene {
 	display: flex;
 	height: 100vh;
