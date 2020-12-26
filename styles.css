@@ -30,14 +30,14 @@
 .sun {
   width: 15vw;
   height: 15vw;
-  background-image: url("jermasun.png");
+  background-image: url("Jermasun.png");
   background-size: cover;
 }
 
 .moon {
   width: 15vw;
   height: 15vw;
-  background-image: url("jermamoon.png");
+  background-image: url("Jermamoon.png");
   background-size: cover;
   transform: scaleY(-1);
 }
