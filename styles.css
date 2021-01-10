@@ -36,8 +36,8 @@
     justify-content: space-between;
 	flex-wrap: wrap;
 	flex-direction: column;
-	animation: rotateSunAndMoon 24s infinite linear;
-	animation-delay: -12s;
+	animation: rotateSunAndMoon 48s infinite linear;
+	animation-delay: -24s;
 }
 
 .sun {
