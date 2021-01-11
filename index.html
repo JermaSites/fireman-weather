@@ -7,9 +7,21 @@
 	<title>jerma weather</title>
 </head>
 <body>
-	<video autoplay loop muted playsinline>
-		<source src="JermaIntroCropped.webm" type="video/webm">
-	</video>
+	<canvas id='backgroundVideo'>
+		<video autoplay loop muted playsinline>
+			<source src="JermaIntroCropped.webm" type="video/webm">
+		</video>
+		<!-- if browser doesn't support html5 canvas, fallback to html5 video -->
+	</canvas>
+	<div id="about">
+		<button id="start">
+			sync your current time
+		</button>
+		<a href="https://twitter.com/thestickman391">@Thestickman391</a>
+		<a href="https://github.com/JermaSites/fireman-weather">GitHub</a>
+	</div>
+	<div id="clouds">
+	</div>
 	<div class="scene">
 		<svg>
 			<linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%"> 
@@ -32,14 +44,6 @@
 			<div class="moon"></div>
 		</div>
 	</div>
-	<div id="about">
-		<button id="start">
-			sync your current time
-		</button>
-		<a href="https://twitter.com/thestickman391">@Thestickman391</a>
-		<a href="https://github.com/JermaSites/fireman-weather">GitHub</a>
-	</div>	
-	<div id="clouds">
-	</div>
+	
 	<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8a624e372b2b42baa0649413c7246f5e"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
