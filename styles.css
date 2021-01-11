@@ -127,7 +127,7 @@ canvas {
 	width: 100vw;
 	z-index: 5;
 	bottom: 0;
-	height: calc(442.75px - (0.13 * 100vw));
+	height: calc(472.75px - (0.195 * 100vw));
 }
 
 #topLayer {
