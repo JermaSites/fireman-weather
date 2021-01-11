@@ -46,6 +46,6 @@ window.addEventListener('load', () => {
 			requestAnimationFrame(step);
 		}
 		requestAnimationFrame(step);
-	})
+	});
 });
 

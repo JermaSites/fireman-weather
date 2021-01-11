@@ -117,3 +117,32 @@ canvas {
 	image-rendering: crisp-edges;
 	height: auto;
 }
+
+#front {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	position: absolute;
+	/* top: 90vh; */
+	width: 100vw;
+	z-index: 5;
+	bottom: 0;
+	height: calc(442.75px - (0.13 * 100vw));
+}
+
+#topLayer {
+	background-image: url(./grass.png);
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 256px;
+	z-index: 1;
+	top: 0;
+}
+
+#bottomLayer {
+	background-image: url(./dirt.png);
+	background-repeat: repeat;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
