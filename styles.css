@@ -71,8 +71,6 @@ body {
   margin: 0; 
   padding: 0;
   background-color: #000;
-  background-image: url(JermaIntroCropped.webm); 
-  background-size:cover;
   position: relative;
   min-height: 100vh;
   overflow: hidden;
