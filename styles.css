@@ -117,6 +117,6 @@ video {
   }
   
   @keyframes moveclouds {
-	  0% {margin-left: 100vw;}
-	  100% {margin-left: -23.64066193853428vh;}
+	  0% {transform: translateX(100vw);}
+	  100% {transform: translateX(-23.64066193853428vh);}
   }
