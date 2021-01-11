@@ -21,15 +21,18 @@ window.addEventListener('load', () => {
 		document.getElementById('sunMoonCycle').style.animationDuration = "86400s";
 		document.getElementById('sunMoonCycle').style.animationDelay = '-' + (totalSeconds + 43200) + 's';
 	};
-	for(var i = 0; i < 50; i++) {
+	for(var i = 0; i < 25; i++) {
 		var cloudSpeed = Math.floor(Math.random() * 30) + 1;
 		console.log(cloudSpeed);
-		var div = document.createElement("div");
+		var div = document.createElement("img");
 		div.style.animationDuration = (15 * (1 + (cloudSpeed / 10))) + "s";
 		div.style.animationDelay = "-" + (((Math.floor(Math.random() * 100) + 1) / 100) * (15 * (1 + (cloudSpeed / 10))))+ "s";
-		div.style.transform = "scale(" + (Math.floor(Math.random() * 2) + 0) + ")";
+		div.style.width = (30 * (cloudSpeed / 60)) + "%";
+		// div.style.height = "auto";
+		// div.style.transform = "scale(" + (Math.floor(Math.random() * 100) + 0) + ")";
 		div.style.opacity = (cloudSpeed / 20);
 		div.className = "cloud";
+		div.src = "./clouds/cloud0" + (Math.floor(Math.random() * 5) + 1) + ".png";
 		div.style.top = (Math.floor(Math.random() * 100) + 1) + "vh";
 		document.getElementById("clouds").appendChild(div);
     }
