@@ -1,6 +1,6 @@
 @keyframes rotateSunAndMoon {	
-  from { rotate: 0deg; }
-  to { rotate: 360deg; }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
