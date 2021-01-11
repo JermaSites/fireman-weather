@@ -19,4 +19,4 @@ jobs:
         CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
 
         CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-        PURGE_URLS: '["https://weather.jerma.io", "https://weather.jerma.io/styles.css", "https://weather.jerma.io/scripts.js"]'
+        PURGE_URLS: '["https://SUBDOMAIN.jerma.io", "https://SUBDOMAIN.jerma.io/styles.css", "https://SUBDOMAIN.jerma.io/scripts.js"]'
