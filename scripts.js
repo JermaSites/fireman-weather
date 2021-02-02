@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
 		// div.style.transform = "scale(" + (Math.floor(Math.random() * 100) + 0) + ")";
 		div.style.opacity = (cloudSpeed / 20);
 		div.className = "cloud";
-		div.src = "./clouds/cloud0" + (Math.floor(Math.random() * 5) + 1) + ".png";
+		div.src = "media/clouds/cloud0" + (Math.floor(Math.random() * 5) + 1) + ".png";
 		div.style.top = (Math.floor(Math.random() * 100) + 1) + "vh";
 		document.getElementById("clouds").appendChild(div);
 	}

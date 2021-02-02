@@ -46,14 +46,14 @@
 .sun {
   width: 15vw;
   height: 15vw;
-  background-image: url("Jermasun.png");
+  background-image: url("media/Jermasun.png");
   background-size: cover;
 }
 
 .moon {
   width: 15vw;
   height: 15vw;
-  background-image: url("Jermamoon.png");
+  background-image: url("media/Jermamoon.png");
   background-size: cover;
   transform: scaleY(-1);
 }
@@ -131,7 +131,7 @@ canvas {
 }
 
 #topLayer {
-	background-image: url(./grass.png);
+	background-image: url(media/grass.png);
 	background-repeat: repeat-x;
 	width: 100%;
 	height: 32px;
@@ -140,7 +140,7 @@ canvas {
 }
 
 #bottomLayer {
-	background-image: url(./dirt.png);
+	background-image: url(media/dirt.png);
 	background-repeat: repeat;
 	width: 100%;
 	height: 100%;
