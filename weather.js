@@ -1,6 +1,5 @@
 var weather = require('openweather-apis');
 var geoip = require('geoip-lite');
-var ip = '115.189.87.37';
 var geo = geoip.lookup(ip);
 console.log(geo.city);
 require('dotenv').config();
