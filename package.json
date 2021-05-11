@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bent": "^7.3.12",
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "geoip-lite": "^1.4.2",
     "ip": "^1.1.5",
