@@ -1,7 +1,6 @@
 var weather = require('openweather-apis');
 var geoip = require('geoip-lite');
 var geo = geoip.lookup(ip);
-console.log(geo.city);
 require('dotenv').config();
 
 weather.setLang('en');
