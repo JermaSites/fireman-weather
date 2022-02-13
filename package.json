@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^9.0.2",
-    "geoip-lite": "^1.4.2",
-    "openweather-apis": "^4.4.1"
+    "dotenv": "^16.0.0",
+    "geoip-lite": "^1.4.3",
+    "openweather-apis": "^4.4.2"
   }
 }
