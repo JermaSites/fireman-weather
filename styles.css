@@ -146,3 +146,17 @@ canvas {
 	height: 100%;
 	z-index: 0;
 }
+
+#clock {
+	--clock-font-size: 10rem;
+	position: absolute;
+	top: calc(50% - var(--clock-font-size) / 2);
+	left: 0;
+	text-align: center;
+	width: 100%;
+	height: var(--clock-font-size);
+	font-size: var(--clock-font-size);
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+	z-index: 10;
+}

@@ -47,5 +47,19 @@ window.addEventListener('load', () => {
 		}
 		requestAnimationFrame(step);
 	});
+
+	//Clock functionality
+	let clockUpdate = () => {
+		const time = document.getElementById("time");
+		let d = new Date();
+		let currentHour = d.getHours();
+		let hourDisplay = currentHour % 12 == 0 ? 12 : currentHour % 12;
+		let minuteDisplay = String(d.getMinutes()).padStart(2, "0");
+		let milliseconds = d.getMilliseconds();
+		
+		time.textContent = milliseconds > 500 ? `${hourDisplay} ${minuteDisplay}` : `${hourDisplay}:${minuteDisplay}`;
+	}
+	clockUpdate();
+	setInterval(clockUpdate, 500);
 });
 
