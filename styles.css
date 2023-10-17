@@ -5,6 +5,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+:root {
+	--front-height: calc(472.75px - (0.195 * 100vw));
+}
+
 #about {
     font-family: 'Open Sans', sans-serif;
 	position: absolute;
@@ -127,7 +131,7 @@ canvas {
 	width: 100vw;
 	z-index: 5;
 	bottom: 0;
-	height: calc(472.75px - (0.195 * 100vw));
+	height: var(--front-height);
 }
 
 #topLayer {
