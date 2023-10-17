@@ -148,7 +148,7 @@ canvas {
 }
 
 #clock {
-	--clock-font-size: 10rem;
+	--clock-font-size: 8vw;
 	position: absolute;
 	top: calc(50% - var(--clock-font-size) / 2);
 	left: 0;
