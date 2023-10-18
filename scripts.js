@@ -18,8 +18,10 @@ window.addEventListener('load', () => {
 		
 		document.getElementById("skyGradient").innerHTML += ""; //reload the svgs
 		
-		document.getElementById('sunMoonCycle').style.animationDuration = "86400s";
-		document.getElementById('sunMoonCycle').style.animationDelay = '-' + (totalSeconds + 43200) + 's';
+		document.getElementsByClassName('sun')[0].style.animationDuration = "86400s";
+		document.getElementsByClassName('moon')[0].style.animationDuration = "86400s";
+		document.getElementsByClassName('sun')[0].style.animationDelay = '-' + totalSeconds + 's';
+		document.getElementsByClassName('moon')[0].style.animationDelay = '-' + totalSeconds + 's';
 	};
 	for(var i = 0; i < 25; i++) {
 		var cloudSpeed = Math.floor(Math.random() * 30) + 1;

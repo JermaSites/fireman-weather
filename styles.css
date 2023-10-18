@@ -1,9 +1,20 @@
-@keyframes rotateSunAndMoon {	
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes rotateMoon {	
+	from { transform: rotate(-180deg) translateY(42.5vw) rotate(180deg); }
+	to { transform: rotate(180deg) translateY(42.5vw) rotate(-180deg); }
 }
 
+@keyframes rotateSun {	
+	from { transform: rotate(-180deg) translateY(-42.5vw) rotate(180deg); }
+	to { transform: rotate(180deg) translateY(-42.5vw) rotate(-180deg); }
+}
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+:root {
+	--front-height: calc(472.75px - (0.195 * 100vw));
+}
 
 #about {
     font-family: 'Open Sans', sans-serif;
@@ -27,23 +38,11 @@
 	z-index: 1;
 }
 
-#sunMoonCycle {
-	/* width: 100vw; */
-	height: 100vw;
-	position: relative;
-	/* max-width: 100%; */
-	/* max-height: 100vh; */
-	margin: auto;
-	display: flex;
-	align-items: center;
-    justify-content: space-between;
-	flex-wrap: wrap;
-	flex-direction: column;
-	animation: rotateSunAndMoon 48s infinite linear;
-	animation-delay: -24s;
-}
-
 .sun {
+  position: absolute;
+	bottom: calc(var(--front-height) - 7.5vw);
+  left: 42.5vw;
+  animation: rotateSun 48s infinite linear;
   width: 15vw;
   height: 15vw;
   background-image: url("media/Jermasun.png");
@@ -51,11 +50,14 @@
 }
 
 .moon {
+	position: absolute;
+	bottom: calc(var(--front-height) - 7.5vw);
+	left: 42.5vw;
+	animation: rotateMoon 48s infinite linear;
   width: 15vw;
   height: 15vw;
   background-image: url("media/Jermamoon.png");
   background-size: cover;
-  transform: scaleY(-1);
 }
 
 * {
@@ -127,7 +129,7 @@ canvas {
 	width: 100vw;
 	z-index: 5;
 	bottom: 0;
-	height: calc(472.75px - (0.195 * 100vw));
+	height: var(--front-height);
 }
 
 #topLayer {
@@ -148,7 +150,7 @@ canvas {
 }
 
 #clock {
-	--clock-font-size: 10rem;
+	--clock-font-size: 8vw;
 	position: absolute;
 	top: calc(50% - var(--clock-font-size) / 2);
 	left: 0;
