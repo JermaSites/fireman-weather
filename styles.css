@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
 
 :root {
-  --front-height: calc(472.75px - (0.195 * 100vw));
+  --front-height: min(20vh, calc(472.75px - (0.195 * 100vw)));
   --planet-offset: 42.5vw;
   --planet-size: 15vw;
   --planet-animation-duration: 48s
@@ -10,6 +10,14 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
 }
 
 .about {
@@ -45,11 +53,11 @@
   position: absolute;
   bottom: calc(var(--front-height) - 7.5vw);
   left: var(--planet-offset);
-  animation: rotateSun var(--planet-animation-duration) infinite linear;
   width: var(--planet-size);
   height: var(--planet-size);
   background-image: url("media/Jermasun.png");
   background-size: cover;
+  animation: rotateSun var(--planet-animation-duration) infinite linear;
 }
 
 @keyframes rotateMoon {
@@ -66,26 +74,17 @@
   position: absolute;
   bottom: calc(var(--front-height) - 7.5vw);
   left: var(--planet-offset);
-  animation: rotateMoon var(--planet-animation-duration) infinite linear;
   width: var(--planet-size);
   height: var(--planet-size);
   background-image: url("media/Jermamoon.png");
   background-size: cover;
+  animation: rotateMoon var(--planet-animation-duration) infinite linear;
 }
 
 svg {
   position: absolute;
   width: 100vw;
   height: 100vh;
-}
-
-body {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background-color: #000;
-  overflow: hidden;
 }
 
 video {
@@ -107,6 +106,7 @@ canvas {
 
 #clouds {
   position: absolute;
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
   z-index: 4;
@@ -152,13 +152,13 @@ canvas {
 }
 
 #clock {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   position: absolute;
   top: 0;
   left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 100vw;
   height: 100vh;
