@@ -4,6 +4,7 @@
   --front-height: calc(472.75px - (0.195 * 100vw));
   --planet-offset: 42.5vw;
   --planet-size: 15vw;
+  --planet-animation-duration: 48s
 }
 
 * {
@@ -44,7 +45,7 @@
   position: absolute;
   bottom: calc(var(--front-height) - 7.5vw);
   left: var(--planet-offset);
-  animation: rotateSun 10s infinite linear;
+  animation: rotateSun var(--planet-animation-duration) infinite linear;
   width: var(--planet-size);
   height: var(--planet-size);
   background-image: url("media/Jermasun.png");
@@ -65,7 +66,7 @@
   position: absolute;
   bottom: calc(var(--front-height) - 7.5vw);
   left: var(--planet-offset);
-  animation: rotateMoon 10s infinite linear;
+  animation: rotateMoon var(--planet-animation-duration) infinite linear;
   width: var(--planet-size);
   height: var(--planet-size);
   background-image: url("media/Jermamoon.png");

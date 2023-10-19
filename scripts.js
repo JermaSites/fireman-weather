@@ -49,10 +49,11 @@ function syncAnimationToLocalTime() {
 	const sun = document.getElementById("sun");
 	const moon = document.getElementById("moon");
 
-	sun.style.animationDuration = `${secondsPerDay}s`;
-	moon.style.animationDuration = `${secondsPerDay}s`;
 	sun.style.animationDelay = `-${totalSeconds}s`;
+	sun.style.animationDuration = `${secondsPerDay}s`;
+
 	moon.style.animationDelay = `-${totalSeconds}s`;
+	moon.style.animationDuration = `${secondsPerDay}s`;
 }
 
 function updateClock() {
