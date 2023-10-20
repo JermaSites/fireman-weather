@@ -1,13 +1,9 @@
 window.addEventListener("load", async () => {
+	updateClock();
+	setInterval(updateClock, 500);
+
 	const syncButton = document.getElementById("syncButton");
-
 	syncButton.addEventListener("click", syncAnimationToLocalTime);
-
-	// const weatherData = await getWeather();
-
-	for (var i = 0; i < 25; i++) {
-		cloudFactory(weatherData);
-	}
 
 	const canvas = document.querySelector("canvas");
 	const ctx = canvas.getContext("2d");
@@ -21,8 +17,12 @@ window.addEventListener("load", async () => {
 		requestAnimationFrame(step);
 	});
 
-	updateClock();
-	setInterval(updateClock, 500);
+	const weatherData = await getWeather();
+	console.log(weatherData);
+
+	for (var i = 0; i < weatherData.current.cloudcover; i++) {
+		cloudFactory(weatherData);
+	}
 });
 
 function syncAnimationToLocalTime() {
@@ -68,26 +68,6 @@ function updateClock() {
 	time.textContent = milliseconds > 500 ? `${localTime.split(":").join(' ')}` : `${localTime}`;
 }
 
-// function createCloud() {
-// 	const cloudImg = document.createElement("img");
-
-// 	const cloudSpeed = getRandomRange(1, 30);
-// 	const cloudAnimationDuration = 15 * (1 + cloudSpeed / 10)
-// 	const cloudAnimationDelay = (getRandomRange(1, 100) / 100) * (15 * (1 + cloudSpeed / 10))
-
-// 	cloudImg.style.animationDuration = `${cloudAnimationDuration}s`;
-// 	cloudImg.style.animationDelay = `-${cloudAnimationDelay}s`;
-
-// 	cloudImg.style.width = 30 * (cloudSpeed / 60) + "%";
-
-// 	cloudImg.style.opacity = cloudSpeed / 20;
-// 	cloudImg.className = "cloud";
-// 	cloudImg.src = `media/clouds/cloud0${getRandomRange(1, 5)}.png`;
-// 	cloudImg.style.top = `${getRandomRange(1, 70)}vh`;
-
-// 	document.getElementById("clouds").appendChild(cloudImg);
-// }
-
 class Cloud {
 	imgEl = document.createElement("img");
 	width;
@@ -117,14 +97,17 @@ class Cloud {
 	}
 }
 
-function cloudFactory() {
+function cloudFactory(weatherData) {
+	const windSpeed = weatherData.current.windspeed_10m;
+	const cloudCover = weatherData.current.cloudclover;
+
 	const cloudImgSrc = `media/clouds/cloud0${getRandomRange(1, 5)}.png`;
-	const cloudSpeed = getRandomRange(1, 30);
-	const cloudWidth = 30 * (cloudSpeed / 60) + "%";
-	const cloudOpacity = cloudSpeed / 20;
+	const cloudSpeed = getRandomRange((windSpeed / 2) + 1, windSpeed);
+	const cloudWidth = 30 * (cloudCover / 60) + "%";
+	const cloudOpacity = cloudCover / 20;
 	const cloudTopOffset = `${getRandomRange(1, 70)}vh`;
-	const cloudAnimationDuration = `${15 * (1 + cloudSpeed / 10)}s`;
-	const cloudAnimationDelay = `-${(getRandomRange(1, 100) / 100) * (15 * (1 + cloudSpeed / 10))}s`;
+	const cloudAnimationDuration = `${200 / cloudSpeed}s`;
+	const cloudAnimationDelay = `-${(getRandomRange(1, 100) / 100) * (15 * (1 + windSpeed * 10))}s`;
 
 	const cloud = new Cloud(cloudImgSrc, cloudSpeed, cloudWidth, cloudOpacity, cloudTopOffset, cloudAnimationDuration, cloudAnimationDelay);
 	document.getElementById("clouds").appendChild(cloud.imgEl);
@@ -147,6 +130,26 @@ async function getCoords() {
 async function getWeather() {
 	const { latitude, longitude } = await getCoords();
 
-	const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation,rain,showers,snowfall,windspeed_10m&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York`);
+	const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation,rain,showers,snowfall,cloudcover,windspeed_10m&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York`);
 	return await response.json();
 }
+
+// function createCloud() {
+// 	const cloudImg = document.createElement("img");
+
+// 	const cloudSpeed = getRandomRange(1, 30);
+// 	const cloudAnimationDuration = 15 * (1 + cloudSpeed / 10)
+// 	const cloudAnimationDelay = (getRandomRange(1, 100) / 100) * (15 * (1 + cloudSpeed / 10))
+
+// 	cloudImg.style.animationDuration = `${cloudAnimationDuration}s`;
+// 	cloudImg.style.animationDelay = `-${cloudAnimationDelay}s`;
+
+// 	cloudImg.style.width = 30 * (cloudSpeed / 60) + "%";
+
+// 	cloudImg.style.opacity = cloudSpeed / 20;
+// 	cloudImg.className = "cloud";
+// 	cloudImg.src = `media/clouds/cloud0${getRandomRange(1, 5)}.png`;
+// 	cloudImg.style.top = `${getRandomRange(1, 70)}vh`;
+
+// 	document.getElementById("clouds").appendChild(cloudImg);
+// }
