@@ -123,6 +123,8 @@ canvas {
 }
 
 .cloud {
+  transform: translate(100vw);
+  overflow: hidden;
   position: absolute;
   animation: moveclouds linear infinite;
   image-rendering: crisp-edges;
