@@ -10,24 +10,33 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
   background-color: #000;
 }
 
-.about {
-  font-family: "Open Sans", sans-serif;
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+canvas {
   position: absolute;
-  opacity: 0.5;
-  bottom: 0;
-  right: 0;
-  background-color: white;
-  z-index: 15;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  image-rendering: crisp-edges;
+  z-index: 0;
+}
+
+video {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 3;
 }
 
 .scene {
@@ -37,6 +46,12 @@ body {
   flex-wrap: wrap;
   height: 100vh;
   z-index: 1;
+}
+
+svg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 
 @keyframes rotateSun {
@@ -81,29 +96,6 @@ body {
   animation: rotateMoon var(--planet-animation-duration) infinite linear;
 }
 
-svg {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-}
-
-video {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 3;
-}
-
-canvas {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  image-rendering: crisp-edges;
-  z-index: 0;
-}
-
 #clouds {
   position: absolute;
   overflow: hidden;
@@ -130,6 +122,24 @@ canvas {
   image-rendering: crisp-edges;
 }
 
+#clock {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  font-size: 8vw;
+  color: white;
+  text-shadow: #000 1px 0 10px;
+  z-index: 10;
+}
+
 #front {
   position: absolute;
   bottom: 0;
@@ -153,21 +163,11 @@ canvas {
   z-index: 0;
 }
 
-#clock {
+.about {
   position: absolute;
-  top: 0;
-  left: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100vw;
-  height: 100vh;
-
-  font-size: 8vw;
-  font-family: "Open Sans", sans-serif;
-  color: white;
-  text-shadow: #000 1px 0 10px;
-  z-index: 10;
+  opacity: 0.5;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  z-index: 15;
 }
