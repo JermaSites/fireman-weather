@@ -18,7 +18,7 @@ window.addEventListener("load", async () => {
 	});
 
 	const weatherData = await getWeather();
-	console.log(weatherData.current)
+	console.log(weatherData?.current)
 	cloudFactory(weatherData);
 });
 
