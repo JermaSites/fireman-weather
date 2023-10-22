@@ -126,26 +126,42 @@ function getRandomRange(min, max) {
 
 async function getCoords() {
 	try {
+		console.log("Loading coords")
 		const position = await new Promise((resolve, reject) => {
-			navigator.geolocation.getCurrentPosition(resolve, reject);
+			const options = {
+				maximumAge: 24 * 60 * 60,
+				timeout: 5000,
+				enableHighAccuracy: true
+			}
+			navigator.geolocation.getCurrentPosition(resolve, reject, options);
 		});
 
 		const { latitude, longitude } = position.coords;
 
 		return { latitude, longitude };
 	} catch (error) {
-		return null
+		console.log("Error: Geolocation permission blocked");
+		console.log(error)
+		return null;
+	} finally {
+		console.log("Finished loading coords or error")
 	}
 
 }
 
 async function getWeather() {
 	try {
+		console.log("Loading weather")
 		const { latitude, longitude } = await getCoords();
 
 		const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation,rain,showers,snowfall,cloudcover,windspeed_10m&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York`);
-		return await response.json();
+		const data = await response.json();
+		return data;
 	} catch (error) {
-		return null
+		console.log("Error getting weather");
+		console.log(error);
+		return null;
+	} finally {
+		console.log("Finished loading weather or error");
 	}
 }
