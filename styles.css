@@ -73,6 +73,8 @@ svg {
   background-image: url("media/Jermasun.png");
   background-size: cover;
   animation: rotateSun var(--planet-animation-duration) infinite linear;
+  border-radius: 50%;
+  box-shadow: 0 0 200px 10px #f02121;
 }
 
 @keyframes rotateMoon {
@@ -94,6 +96,8 @@ svg {
   background-image: url("media/Jermamoon.png");
   background-size: cover;
   animation: rotateMoon var(--planet-animation-duration) infinite linear;
+  border-radius: 50%;
+  box-shadow: 0 0 200px 10px #C0C0C0;
 }
 
 #clouds {
