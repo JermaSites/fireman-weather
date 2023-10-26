@@ -28,7 +28,7 @@ canvas {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   z-index: 0;
 }
 
@@ -171,6 +171,8 @@ svg {
 .about {
   position: absolute;
   display: flex;
+  justify-content: flex-end;
+  width: 100%;
   gap: 5px;
   bottom: 5px;
   right: 5px;
@@ -205,4 +207,15 @@ button {
 .button:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
+}
+
+@media (max-width: 600px) {
+  .about {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button {
+    font-size: 12px;
+  }
 }
