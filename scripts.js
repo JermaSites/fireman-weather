@@ -13,11 +13,14 @@ window.addEventListener("load", async () => {
 	const video = document.querySelector("video");
 
 	video.addEventListener("play", () => {
+		const fps = 30;
 		function step() {
-			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-			requestAnimationFrame(step);
+			setTimeout(() => {
+				ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+				requestAnimationFrame(step);
+			}, 1000 / fps);
 		}
-		requestAnimationFrame(step);
+		step();
 	});
 
 	cloudFactory();
@@ -135,7 +138,7 @@ function cloudFactory(weatherData) {
 }
 
 function getRandomRange(min, max) {
-	return Math.floor(Math.random() * (max - min) + min);
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 async function getCoords() {
