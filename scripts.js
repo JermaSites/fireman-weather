@@ -12,27 +12,28 @@ window.addEventListener("load", async () => {
 	const ctx = canvas.getContext("2d");
 	const video = document.querySelector("video");
 
-
 	const fps = 24;
+
 	function step() {
-		setTimeout(() => {
+		return setTimeout(() => {
 			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 			requestAnimationFrame(step);
 		}, 1000 / fps);
 	}
-	step();
 
-	// video.addEventListener("play", () => {
-	// 	console.log("Video play event")
-	// 	const fps = 30;
-	// 	function step() {
-	// 		setTimeout(() => {
-	// 			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-	// 			requestAnimationFrame(step);
-	// 		}, 1000 / fps);
-	// 	}
-	// 	step();
-	// });
+	const timeout = step();
+
+	video.addEventListener("play", () => {
+		console.log("Video play event")
+		clearTimeout(timeout);
+		function step() {
+			setTimeout(() => {
+				ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+				requestAnimationFrame(step);
+			}, 1000 / fps);
+		}
+		step();
+	});
 
 	cloudFactory();
 });

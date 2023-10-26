@@ -11,12 +11,14 @@
 
 <body>
   <section class="container">
-    <canvas id="backgroundVideo">
-      <video preload="auto" autoplay loop muted playsinline webkit-playsinline hidden>
+    <canvas>
+      <video preload="auto" autoplay loop muted playsinline>
+        <source src="media/JermaIntroCropped.mp4" type="video/mp4" />
         <source src="media/JermaIntroCropped.webm" type="video/webm" />
       </video>
-      <!-- if browser doesn't support html5 canvas, fallback to html5 video -->
     </canvas>
+
+
 
     <div id="clouds"></div>
 
