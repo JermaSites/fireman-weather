@@ -5,6 +5,9 @@ window.addEventListener("load", async () => {
 	const syncTimeButton = document.getElementById("syncTimeButton");
 	syncTimeButton.addEventListener("click", syncAnimationToLocalTime);
 
+	const syncWeatherButton = document.getElementById("syncWeatherButton");
+	syncWeatherButton.addEventListener("click", syncAnimationToLocalWeather);
+
 	const canvas = document.querySelector("canvas");
 	const ctx = canvas.getContext("2d");
 	const video = document.querySelector("video");
@@ -17,9 +20,7 @@ window.addEventListener("load", async () => {
 		requestAnimationFrame(step);
 	});
 
-	const weatherData = await getWeather();
-	console.log(weatherData?.current)
-	cloudFactory(weatherData);
+	cloudFactory();
 });
 
 function syncAnimationToLocalTime() {
@@ -55,6 +56,12 @@ function syncAnimationToLocalTime() {
 	moon.style.animationDuration = `${secondsPerDay}s`;
 }
 
+async function syncAnimationToLocalWeather() {
+	const weatherData = await getWeather();
+	console.log(weatherData?.current)
+	cloudFactory(weatherData);
+}
+
 function updateClock() {
 	const time = document.getElementById("time");
 	const d = new Date();
@@ -87,7 +94,14 @@ class Cloud {
 }
 
 function cloudFactory(weatherData) {
-	if (weatherData !== null) {
+	const cloudsEl = document.getElementById("clouds");
+
+	// remove all child elements
+	while (cloudsEl.firstChild) {
+		cloudsEl.removeChild(cloudsEl.firstChild)
+	}
+
+	if (weatherData) {
 		for (let i = 0; i < weatherData.current.cloudcover; i++) {
 			const windSpeed = weatherData.current.windspeed_10m;
 			const cloudCover = weatherData.current.cloudclover;
@@ -101,7 +115,7 @@ function cloudFactory(weatherData) {
 			const cloudAnimationDelay = `-${(getRandomRange(1, 100) / 100) * (15 * (1 + windSpeed * 10))}s`;
 
 			const cloud = new Cloud(cloudImgSrc, cloudSpeed, cloudWidth, cloudOpacity, cloudTopOffset, cloudAnimationDuration, cloudAnimationDelay);
-			document.getElementById("clouds").appendChild(cloud.imgEl);
+			cloudsEl.appendChild(cloud.imgEl);
 		}
 	} else {
 		console.log("Default clouds")
@@ -115,7 +129,7 @@ function cloudFactory(weatherData) {
 			const cloudAnimationDelay = `-${(getRandomRange(1, 100) / 100) * (15 * (1 + cloudSpeed / 10))}s`;
 
 			const cloud = new Cloud(cloudImgSrc, cloudSpeed, cloudWidth, cloudOpacity, cloudTopOffset, cloudAnimationDuration, cloudAnimationDelay);
-			document.getElementById("clouds").appendChild(cloud.imgEl);
+			cloudsEl.appendChild(cloud.imgEl);
 		}
 	}
 }

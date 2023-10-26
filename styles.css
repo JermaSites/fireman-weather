@@ -10,6 +10,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -169,9 +170,39 @@ svg {
 
 .about {
   position: absolute;
-  opacity: 0.5;
-  bottom: 0;
-  right: 0;
-  background-color: white;
+  display: flex;
+  gap: 5px;
+  bottom: 5px;
+  right: 5px;
   z-index: 15;
+}
+
+button {
+  all: unset;
+  outline: revert;
+}
+
+.button {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover {
+  background-color: #fff;
+}
+
+.button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
 }
