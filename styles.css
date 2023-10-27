@@ -155,7 +155,7 @@ svg {
 #topLayer {
   width: 100vw;
   height: 32px;
-  background-image: url(media/grass.png);
+  background-image: url(media/images/grass.png);
   background-repeat: repeat-x;
   z-index: 1;
 }
@@ -163,7 +163,7 @@ svg {
 #bottomLayer {
   width: 100%;
   height: 100%;
-  background-image: url(media/dirt.png);
+  background-image: url(media/images/dirt.png);
   background-repeat: repeat;
   z-index: 0;
 }
