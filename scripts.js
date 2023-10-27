@@ -12,20 +12,8 @@ window.addEventListener("load", async () => {
 	const ctx = canvas.getContext("2d");
 	const video = document.querySelector("video");
 
-	const fps = 24;
-
-	function step() {
-		return setTimeout(() => {
-			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-			requestAnimationFrame(step);
-		}, 1000 / fps);
-	}
-
-	const timeout = step();
-
 	video.addEventListener("play", () => {
-		console.log("Video play event")
-		clearTimeout(timeout);
+		const fps = 24;
 		function step() {
 			setTimeout(() => {
 				ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
