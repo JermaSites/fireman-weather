@@ -71,7 +71,7 @@ svg {
   left: var(--planet-offset);
   width: var(--planet-size);
   height: var(--planet-size);
-  background-image: url("media/Jermasun.png");
+  background-image: url("media/images/jermaSun.png");
   background-size: cover;
   animation: rotateSun var(--planet-animation-duration) infinite linear;
   border-radius: 50%;
@@ -94,7 +94,7 @@ svg {
   left: var(--planet-offset);
   width: var(--planet-size);
   height: var(--planet-size);
-  background-image: url("media/Jermamoon.png");
+  background-image: url("media/images/jermaMoon.png");
   background-size: cover;
   animation: rotateMoon var(--planet-animation-duration) infinite linear;
   border-radius: 50%;

@@ -13,6 +13,7 @@ window.addEventListener("load", async () => {
 	const video = document.querySelector("video");
 
 	video.addEventListener("play", () => {
+		console.log("video play event")
 		const fps = 24;
 		function step() {
 			setTimeout(() => {
@@ -109,7 +110,7 @@ function cloudFactory(weatherData) {
 			const windSpeed = weatherData.current.windspeed_10m;
 			const cloudCover = weatherData.current.cloudclover;
 
-			const cloudImgSrc = `media/clouds/cloud0${getRandomRange(1, 5)}.png`;
+			const cloudImgSrc = `media/images/clouds/cloud0${getRandomRange(1, 5)}.png`;
 			const cloudSpeed = getRandomRange((windSpeed / 2) + 1, windSpeed);
 			const cloudWidth = 30 * (cloudCover / 60) + "%";
 			const cloudOpacity = cloudCover / 20;
@@ -123,7 +124,7 @@ function cloudFactory(weatherData) {
 	} else {
 		console.log("Default clouds")
 		for (let i = 0; i < 25; i++) {
-			const cloudImgSrc = `media/clouds/cloud0${getRandomRange(1, 5)}.png`;
+			const cloudImgSrc = `media/images/clouds/cloud0${getRandomRange(1, 5)}.png`;
 			const cloudSpeed = getRandomRange(1, 30);
 			const cloudWidth = 30 * (cloudSpeed / 60) + "%";
 			const cloudOpacity = cloudSpeed / 20;
