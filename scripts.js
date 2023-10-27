@@ -8,21 +8,19 @@ window.addEventListener("load", async () => {
 	const syncWeatherButton = document.getElementById("syncWeatherButton");
 	syncWeatherButton.addEventListener("click", syncAnimationToLocalWeather);
 
-	const canvas = document.querySelector("canvas");
+	const canvas = document.getElementById("canvas");
 	const ctx = canvas.getContext("2d");
-	const video = document.querySelector("video");
+	const video = document.getElementById("video");
 
-	video.addEventListener("play", () => {
-		console.log("video play event")
-		const fps = 24;
-		function step() {
-			setTimeout(() => {
-				ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-				requestAnimationFrame(step);
-			}, 1000 / fps);
-		}
-		step();
-	});
+	function drawVideo() {
+		ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+		requestAnimationFrame(drawVideo);
+	}
+
+	video.addEventListener("playing", () => {
+		console.log("Video playing")
+		drawVideo();
+	})
 
 	cloudFactory();
 });
