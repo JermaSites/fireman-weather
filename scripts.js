@@ -17,15 +17,17 @@ window.addEventListener("load", async () => {
 		requestAnimationFrame(drawVideo);
 	}
 
-	video.addEventListener("playing", () => {
-		console.log("Video playing");
-		drawVideo();
-	})
+	drawVideo();
 
-	video.addEventListener("play", () => {
-		console.log("Video play");
-		drawVideo();
-	})
+	// video.addEventListener("playing", () => {
+	// 	console.log("Video playing");
+	// 	drawVideo();
+	// })
+
+	// video.addEventListener("play", () => {
+	// 	console.log("Video play");
+	// 	drawVideo();
+	// })
 
 	cloudFactory();
 });
