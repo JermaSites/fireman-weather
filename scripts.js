@@ -18,7 +18,12 @@ window.addEventListener("load", async () => {
 	}
 
 	video.addEventListener("playing", () => {
-		console.log("Video playing")
+		console.log("Video playing");
+		drawVideo();
+	})
+
+	video.addEventListener("play", () => {
+		console.log("Video play");
 		drawVideo();
 	})
 
