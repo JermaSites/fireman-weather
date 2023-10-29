@@ -18,7 +18,7 @@ body {
   background-color: #000;
 }
 
-.container {
+.wrapper_container {
   position: relative;
   overflow: hidden;
 }
