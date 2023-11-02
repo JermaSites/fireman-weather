@@ -19,16 +19,6 @@ window.addEventListener("load", async () => {
 
 	drawVideo();
 
-	// video.addEventListener("playing", () => {
-	// 	console.log("Video playing");
-	// 	drawVideo();
-	// })
-
-	// video.addEventListener("play", () => {
-	// 	console.log("Video play");
-	// 	drawVideo();
-	// })
-
 	cloudFactory();
 });
 
