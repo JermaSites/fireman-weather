@@ -97,8 +97,11 @@ function cloudFactory(weatherData) {
 
 	// remove all child elements
 	while (cloudsEl.firstChild) {
-		cloudsEl.removeChild(cloudsEl.firstChild)
+		cloudsEl.removeChild(cloudsEl.firstChild);
 	}
+
+	const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+	const widthInMeters = Math.round(vw / 8); // 8px === 1 meter
 
 	if (weatherData) {
 		for (let i = 0; i < weatherData.current.cloudcover; i++) {
@@ -110,7 +113,7 @@ function cloudFactory(weatherData) {
 			const cloudWidth = 30 * (cloudCover / 60) + "%";
 			const cloudOpacity = cloudCover / 20;
 			const cloudTopOffset = `${getRandomRange(1, 70)}vh`;
-			const cloudAnimationDuration = `${200 / cloudSpeed}s`;
+			const cloudAnimationDuration = `${widthInMeters / 10}s`;
 			const cloudAnimationDelay = `-${(getRandomRange(1, 100) / 100) * (15 * (1 + windSpeed * 10))}s`;
 
 			const cloud = new Cloud(cloudImgSrc, cloudSpeed, cloudWidth, cloudOpacity, cloudTopOffset, cloudAnimationDuration, cloudAnimationDelay);
@@ -167,7 +170,7 @@ async function getWeather() {
 		console.log("Loading weather")
 		const { latitude, longitude } = await getCoords();
 
-		const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation,rain,showers,snowfall,cloudcover,windspeed_10m&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York`);
+		const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation_probability,rain,showers,snowfall,cloudcover,windspeed_10m&temperature_unit=fahrenheit&windspeed_unit=ms&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York`);
 		const data = await response.json();
 		return data;
 	} catch (error) {
