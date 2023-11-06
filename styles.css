@@ -127,6 +127,24 @@ svg {
   image-rendering: crisp-edges;
 }
 
+@keyframes digitalClockBlink {
+  0% {
+    opacity: 1;
+  }
+
+  49% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 #clock {
   position: absolute;
   top: 0;
@@ -143,6 +161,10 @@ svg {
   color: white;
   text-shadow: #000 1px 0 10px;
   z-index: 10;
+}
+
+#timeSeperator {
+  animation: digitalClockBlink 2s linear infinite;
 }
 
 #front {

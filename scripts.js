@@ -62,13 +62,14 @@ async function syncAnimationToLocalWeather() {
 }
 
 function updateClock() {
-	const time = document.getElementById("time");
+	const timeHour = document.getElementById("timeHour");
+	const timeMintue = document.getElementById("timeMinute");
 	const d = new Date();
-	const milliseconds = d.getMilliseconds();
-
 	const localTime = d.toLocaleTimeString([], { hour: "numeric", minute: "numeric" });
 
-	time.textContent = milliseconds > 500 ? `${localTime.split(":").join(' ')}` : `${localTime}`;
+	const [hour, minute] = localTime.split(':');
+	timeHour.innerText = hour;
+	timeMintue.innerText = minute;
 }
 
 class Cloud {
